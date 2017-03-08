@@ -1,0 +1,23 @@
+class MockApiService {
+  getProducts() {
+    return Observable.create((observer: Observer<any>) => {
+      observer.next([]);
+    });
+  }
+}
+
+describe('AppComponent', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        AppComponent
+      ],
+      // Tells the compiler not to error on unknown elements and attributes
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [
+        { provide: ApiService, useClass: MockApiService }
+      ]
+    });
+  });
+
+});
