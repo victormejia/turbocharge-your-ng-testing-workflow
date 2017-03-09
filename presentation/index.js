@@ -46,7 +46,8 @@ const images = {
   poll: require('../assets/ng-test-twitter-poll.png'),
   chromeTest: require('../assets/ng-test-chrome.png'),
   coverage: require('../assets/coverage.png'),
-  coverageTerminal: require('../assets/coverage-terminal.png')
+  coverageTerminal: require('../assets/coverage-terminal.png'),
+  profile: require('../assets/profile.jpg')
 };
 
 preloader(images);
@@ -71,21 +72,23 @@ export default class Presentation extends React.Component {
       <Spectacle theme={theme}>
         <Deck transition={["zoom", "slide"]} transitionDuration={500}>
           <Slide transition={["fade"]} bgColor="primary">
-            <Layout>
-              <Fill>
-                <Heading size={2} caps textColor="secondary" margin={10} textAlign="left">
-                  Throw Your Tests Up In There
-                </Heading>
-              </Fill>
-              <Fill>
-                <Heading size={2} caps textColor="secondary" margin={10} textAlign="right">
-                  And Run ‘em Like You Just Don’t Care
-                </Heading>
-              </Fill>
-            </Layout>
+            <Text caps bold textSize="2.2em" textColor="secondary">
+              Throw Your Tests Up In There
+            </Text>
+            <Text fit caps bold textColor="secondary">
+              And Run ‘em Like You Just Don’t Care
+            </Text>
+            <Image style={{borderRadius: "50%", textAlign: "center", marginTop: "40px" }} src={images.profile.replace('/', '')} height="150px" />
+            <Text bold margin={10} textSize="1.5em" textColor="secondary">@_victormejia</Text>
+            <Text bold textSize="1.5em" textColor="secondary">ngtest.firebaseapp.com</Text>
           </Slide>
           <Slide transition={["fade"]} bgColor="secondary">
             <Image src={images.poll.replace('/', '')} margin="0px auto 40px" height="500px" />
+          </Slide>
+          <Slide transition={["fade"]}>
+            <Heading size={1} fit textColor="secondary">
+            Time to geek out 🤓
+            </Heading>
           </Slide>
           <Slide transition={["fade"]} bgColor="primary">
             <Heading size={1} fit caps lineHeight={1} textColor="secondary">
@@ -117,19 +120,16 @@ export default class Presentation extends React.Component {
                 </div>]}
               />
           </Slide>
-          <Slide transition={["fade"]} bgColor="secondary">
-            <Image src={images.chromeTest.replace('/', '')} height="600px" />
-          </Slide>
           <CodeSlide
             transition={["fade"]}
             lang="js"
-            code={require("raw-loader!../assets/karma.conf.js")}
+            code={require("raw-loader!../assets/examples/karma.conf.example")}
             ranges={[
               { loc: [0, 41], title: "karma.conf.js" },
-              { loc: [6, 7], note: "plugins" },
-              { loc: [17, 21], note: "coverage with istanbul" },
-              { loc: [24, 25], note: "reporters" },
-              { loc: [29, 30], note: "browsers" }
+              { loc: [4, 11], note: "plugins" },
+              { loc: [23, 27], note: "generate coverage report with istanbul" },
+              { loc: [30, 33], note: "test reporters" },
+              { loc: [37, 38], note: "A list of browsers to launch and capture (PhantomJS, Chrome, Firefox)" }
             ]}/>
           <Slide transition={["fade"]} bgColor="primary">
             <Terminal title="" output={[
@@ -159,15 +159,21 @@ export default class Presentation extends React.Component {
           <CodeSlide
             transition={["fade"]}
             lang="js"
-            code={require("raw-loader!../assets/karma.conf.summary.js")}
+            code={require("raw-loader!../assets/examples/karma.conf.summary.example")}
             ranges={[
-              { loc: [0, 41], title: "Make terminal reporting pretty" },
-              { loc: [6, 7], note: 'add spec reporter to plugins' },
-              { loc: [24, 25], note: 'change reporter to "spec"' },
-              { loc: [17, 19], note: 'add "text-summary" for istanbul reporter' }
+              { loc: [0, 43], title: "Make terminal reporting pretty" },
+              { loc: [10, 11], note: 'add spec reporter to plugins' },
+              { loc: [31, 34], note: 'change reporter to "spec"' },
+              { loc: [25, 26], note: 'add "text-summary" for istanbul reporter' }
             ]}/>
           <Slide transition={["fade"]} bgColor="secondary">
-            <Image src={images.coverageTerminal.replace('/', '')} margin="-100px 0px 0px -200px" height="800px" />
+            <Image src={images.coverageTerminal.replace('/', '')} margin="-50px 0px 0px -100px" height="700px" />
+          </Slide>
+          <Slide transition={["fade"]}>
+            <Heading size={1} textColor="secondary" caps>Reference</Heading>
+            <Link textColor="secondary" textSize="1.5em" href="https://github.com/victormejia/ngconf2017-test-demo/commit/13f8a80674a5788e054bf3862522094c8d63912f">
+              https://github.com/victormejia/ngconf2017-test-demo/commit/13f8a80674a5788e054bf3862522094c8d63912f
+            </Link>
           </Slide>
           <Slide transition={["fade"]} bgColor="primary">
             <Heading size={1} fit caps lineHeight={1} textColor="secondary">
@@ -213,7 +219,7 @@ export default class Presentation extends React.Component {
           <CodeSlide
             transition={["fade"]}
             lang="js"
-            code={require("raw-loader!../assets/dependencies")}
+            code={require("raw-loader!../assets/examples/dependencies.example")}
             ranges={[
               { loc: [0, 41], title: "mock dependencies to isolate tests" },
               { loc: [0, 7], note: 'mock dependencies' },
