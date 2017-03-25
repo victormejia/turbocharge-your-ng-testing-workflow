@@ -87,7 +87,7 @@ export default class Presentation extends React.Component {
           </Slide>
           <Slide transition={["fade"]}>
             <Heading size={1} fit textColor="secondary">
-            Time to geek out 🤓
+              Time to nerd out 👨🏻‍💻
             </Heading>
           </Slide>
           <Slide transition={["fade"]} bgColor="primary">
@@ -138,12 +138,11 @@ export default class Presentation extends React.Component {
                 <span style={{ color: terminal.cyan }}> master </span>
                 <span style={{ color: terminal.yellow }}>✗</span>
               </div>,
-              "▶ ng test --watch --code-coverage",
+              "▶ ng test --single-run --code-coverage",
               "▶ cd coverage"
               ]} />
           </Slide>
-          <Slide transition={["fade"]} bgColor="secondary">
-            <Image src={images.coverage.replace('/', '')} height="600px" />
+          <Slide transition={["fade"]} bgColor="secondary" bgImage={images.coverage.replace("/", "")}>
           </Slide>
           <Slide transition={["fade"]} bgColor="primary">
             <Text textSize="1.5em" margin="20px" bold textColor="secondary">install karma-spec-reporter</Text>
@@ -166,13 +165,12 @@ export default class Presentation extends React.Component {
               { loc: [31, 34], note: 'change reporter to "spec"' },
               { loc: [25, 26], note: 'add "text-summary" for istanbul reporter' }
             ]}/>
-          <Slide transition={["fade"]} bgColor="secondary">
-            <Image src={images.coverageTerminal.replace('/', '')} margin="-50px 0px 0px -100px" height="700px" />
+          <Slide transition={["fade"]} bgColor="secondary" bgImage={images.coverageTerminal.replace("/", "")}>
           </Slide>
           <Slide transition={["fade"]}>
             <Heading size={1} textColor="secondary" caps>Reference</Heading>
-            <Link textColor="secondary" textSize="1.5em" href="https://github.com/victormejia/ngconf2017-test-demo/commit/13f8a80674a5788e054bf3862522094c8d63912f">
-              https://github.com/victormejia/ngconf2017-test-demo/commit/13f8a80674a5788e054bf3862522094c8d63912f
+            <Link textColor="secondary" textSize="1.5em" href="https://github.com/victormejia/ngconf2017-test-demo/commit/19ac83fe9bc598f80e84afbb7fc6afc7bce96604">
+              https://github.com/victormejia/ngconf2017-test-demo/commit/19ac83fe9bc598f80e84afbb7fc6afc7bce96604
             </Link>
           </Slide>
           <Slide transition={["fade"]} bgColor="primary">
@@ -200,22 +198,28 @@ export default class Presentation extends React.Component {
               Maintaining Tests
             </Heading>
           </Slide>
-          <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
-            <Text textSize="1.5em" margin="20px" bold textColor="secondary">organize tests!</Text>
-            <List>
-              <Appear><ListItem>make use of suites with describe</ListItem></Appear>
-              <Appear><ListItem>top-level "describe" for component</ListItem></Appear>
-              <Appear><ListItem>nested "describe" for functions</ListItem></Appear>
-              <Appear><ListItem>"describe" for component interaction & functionality</ListItem></Appear>
-            </List>
-          </Slide>
-          <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
-            <Text textSize="1.5em" margin="20px" bold textColor="secondary">a test should tell a story</Text>
-            <List>
-              <Appear><ListItem>AAA (Arrange, Act, Assert)</ListItem></Appear>
-              <Appear><ListItem>don't follow DRY "to a tee"</ListItem></Appear>
-            </List>
-          </Slide>
+          <CodeSlide
+              transition={["fade"]}
+              lang="js"
+              code={require("raw-loader!../assets/examples/component-test.example")}
+              ranges={[
+                { loc: [0, 51], title: "Organize tests!" },
+                { loc: [4, 5], note: 'top-level "describe" for component' },
+                { loc: [22, 23], note: 'nested "describe" for functions on component' },
+                { loc: [28, 29], note: 'nested "describe" for functions on component' },
+                { loc: [34, 35], note: '"describe" for component interaction & functionality' }
+            ]}/>
+          <CodeSlide
+              transition={["fade"]}
+              lang="js"
+              code={require("raw-loader!../assets/examples/component-test.example")}
+              ranges={[
+                { loc: [35, 36], title: "a test should tell a story" },
+                { loc: [37, 44], note: 'Arrange' },
+                { loc: [45, 46], note: 'Act' },
+                { loc: [47, 48], note: 'Assert' },
+                { loc: [47, 48], note: 'don\'t follow DRY "to a tee"' },
+            ]}/>
           <CodeSlide
             transition={["fade"]}
             lang="js"
@@ -224,6 +228,15 @@ export default class Presentation extends React.Component {
               { loc: [0, 41], title: "mock dependencies to isolate tests" },
               { loc: [0, 7], note: 'mock dependencies' },
               { loc: [16, 19], note: 'use the provide object literal' },
+            ]}/>
+            <CodeSlide
+              transition={["fade"]}
+              lang="js"
+              code={require("raw-loader!../assets/examples/package.json.example")}
+              ranges={[
+                { loc: [0, 51], title: "prevent bad commits with husky" },
+                { loc: [0, 51], note: "npm install husky --save-dev" },
+                { loc: [11, 13], note: 'add precommit and prepush hooks' }
             ]}/>
         </Deck>
       </Spectacle>
