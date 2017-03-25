@@ -97,16 +97,16 @@ export default class Presentation extends React.Component {
           </Slide>
           <Slide transition={["fade"]} bgColor="primary">
             <Terminal title="" output={[
-              "▶ ng new ng-testy",
+              "▶ ng new ng-shop",
               <div>
                 <div style={{ color: "#5af78e"}}>Installing packages for tooling via npm. </div>
                 <div style={{ color: "#5af78e"}}>Installed packages for tooling via npm.</div>
-                <div style={{ color: "#5af78e"}}>Project 'ng-testy' successfully created.</div>
+                <div style={{ color: "#5af78e"}}>Project 'ng-shop' successfully created.</div>
               </div>]} />
           </Slide>
           <Slide transition={["fade"]} bgColor="primary">
             <Terminal title="" output={[
-                "Projects/code/ng-testy  master ✗",
+                "Projects/code/ng-shop  master ✗",
                 <div>
                 ▶ ng test
                 </div>,
@@ -134,7 +134,7 @@ export default class Presentation extends React.Component {
           <Slide transition={["fade"]} bgColor="primary">
             <Terminal title="" output={[
               <div>
-                <span style={{ color: terminal.purple }}>Projects/code/ng-testy</span>
+                <span style={{ color: terminal.purple }}>Projects/code/ng-shop</span>
                 <span style={{ color: terminal.cyan }}> master </span>
                 <span style={{ color: terminal.yellow }}>✗</span>
               </div>,
@@ -148,7 +148,7 @@ export default class Presentation extends React.Component {
             <Text textSize="1.5em" margin="20px" bold textColor="secondary">install karma-spec-reporter</Text>
             <Terminal title="" output={[
               <div>
-                <span style={{ color: terminal.purple }}>Projects/code/ng-testy</span>
+                <span style={{ color: terminal.purple }}>Projects/code/ng-shop</span>
                 <span style={{ color: terminal.cyan }}> master </span>
                 <span style={{ color: terminal.yellow }}>✗</span>
               </div>,
