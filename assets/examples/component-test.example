@@ -9,7 +9,13 @@ describe('ProductComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductComponent ]
+      declarations: [ ProductComponent ],
+      providers: [
+        {
+          provide: ApiService,
+          useClass: MockApiService
+        }
+      ]
     })
     .compileComponents();
   }));

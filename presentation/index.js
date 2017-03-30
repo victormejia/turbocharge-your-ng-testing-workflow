@@ -47,7 +47,16 @@ const images = {
   chromeTest: require('../assets/ng-test-chrome.png'),
   coverage: require('../assets/coverage.png'),
   coverageTerminal: require('../assets/coverage-terminal.png'),
-  profile: require('../assets/profile.jpg')
+  profile: require('../assets/profile.jpg'),
+  wallaby: require('../assets/ngcli-wallaby.gif'),
+  beach: require('../assets/kauai.jpg'),
+  nyc: require('../assets/nyc.jpg'),
+  computer: require('../assets/computer.png'),
+  righton: require('../assets/righton.png'),
+  heart: require('../assets/heart.png'),
+  spaceship: require('../assets/spaceship.png'),
+  nerdface: require('../assets/nerdface.png'),
+  cool: require('../assets/cool.png')
 };
 
 preloader(images);
@@ -57,6 +66,8 @@ const theme = createTheme({
   secondary: "white",
   tertiary: "#03A9FC",
   quartenary: "#CECECE"
+}, {
+  primary: "Yanone Kaffeesatz"
 });
 
 const terminal = {
@@ -71,28 +82,45 @@ export default class Presentation extends React.Component {
     return (
       <Spectacle theme={theme}>
         <Deck transition={["zoom", "slide"]} transitionDuration={500}>
-          <Slide transition={["fade"]} bgColor="primary">
-            <Text caps bold textSize="2.2em" textColor="secondary">
+          <Slide transition={["fade"]} bgImage={images.nyc.replace('/', '')} bgDarken={0.6}>
+            <Text fit caps bold  textColor="secondary">
               Throw Your Tests Up In There
             </Text>
             <Text fit caps bold textColor="secondary">
               And Run ‘em Like You Just Don’t Care
             </Text>
-            <Image style={{borderRadius: "50%", textAlign: "center", marginTop: "40px" }} src={images.profile.replace('/', '')} height="150px" />
-            <Text bold margin={10} textSize="1.5em" textColor="secondary">@_victormejia</Text>
-            <Text bold textSize="1.5em" textColor="secondary">ngtest.firebaseapp.com</Text>
+            <Layout style={{ "margin-top": "40px" }}>
+              <div>
+                <Image style={{borderRadius: "50%", textAlign: "center", marginTop: "40px" }} src={images.profile.replace('/', '')} height="150px" />
+              </div>
+              <div style={{ "text-align": "left", "padding-left": "10px" }}> 
+                <Text margin={10} textSize="1.5em" textColor="secondary">Victor Mejia</Text>
+                <Text margin={10} textSize="1.5em" textColor="secondary">Lead Instructor @ Orange County Code School</Text>
+                <Text margin={10} textSize="1.5em" textColor="secondary">
+                  <a href="https://twitter.com/_victormejia" style={{ color: 'white', textDecoration: 'none' }}>@_victormejia</a>
+                </Text>
+                <Text textSize="1.5em" textColor="secondary">ngtest.firebaseapp.com</Text>
+              </div>
+            </Layout>
           </Slide>
           <Slide transition={["fade"]} bgColor="secondary">
             <Image src={images.poll.replace('/', '')} margin="0px auto 40px" height="500px" />
           </Slide>
           <Slide transition={["fade"]}>
             <Heading size={1} fit textColor="secondary">
-              Time to nerd out 👨🏻‍💻
+              Time to nerd out &nbsp;
+             <Image src={images.spaceship.replace('/', '')}  style={{ "vertical-align": "middle", "margin-top": "2px" }} height="15px" />
             </Heading>
           </Slide>
           <Slide transition={["fade"]} bgColor="primary">
             <Heading size={1} fit caps lineHeight={1} textColor="secondary">
               Setup & Configuration
+            </Heading>
+          </Slide>
+          <Slide transition={["fade"]}>
+            <Heading size={1} fit textColor="secondary">
+              @angular/cli === &nbsp;
+             <Image src={images.cool.replace('/', '')}  style={{ "vertical-align": "middle", "margin-top": "2px" }} height="15px" />
             </Heading>
           </Slide>
           <Slide transition={["fade"]} bgColor="primary">
@@ -180,19 +208,52 @@ export default class Presentation extends React.Component {
           </Slide>
           <Slide transition={["fade"]} bgColor="primary">
             <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-              CONTENT HERE
+              wallaby.js &nbsp; is &nbsp;
+              <Image src={images.righton.replace('/', '')}  style={{ "vertical-align": "middle", "margin-top": "2px" }} height="15px" />
             </Heading>
+          </Slide>
+          <Slide transition={["fade"]} bgColor="secondary" bgImage={images.wallaby.replace("/", "")}/>
+          <Slide transition={["fade"]} bgColor="primary">
+            <List>
+              <ListItem>
+                <a style={{ color: 'white', textDecoration: 'none' }} href="https://github.com/wallabyjs/ngCliWebpackSample">https://github.com/wallabyjs/ngCliWebpackSample</a>
+              </ListItem>
+              <ListItem>
+                <a style={{ color: 'white', textDecoration: 'none' }} href="https://github.com/victormejia/ngconf2017-test-demo/commit/7684a23be07ecae2888bc82459f2f9cc6a8355bd">https://github.com/victormejia/ngconf2017-test-demo/commit/7684a23be07ecae2888bc82459f2f9cc6a8355bd</a>
+              </ListItem>
+            </List>
           </Slide>
           <Slide transition={["fade"]} bgColor="primary">
             <Heading size={1} fit caps lineHeight={1} textColor="secondary">
               TestBed API
             </Heading>
           </Slide>
+          <CodeSlide
+              transition={["fade"]}
+              lang="js"
+              code={require("raw-loader!../assets/examples/component-test.example")}
+              ranges={[
+                { loc: [10, 19], note: "Configure TestBed module (NgModule-like)" },
+                { loc: [11, 12], note: "Components in test" },
+                { loc: [5, 8], note: "Obtain handle on 3 important objects" },
+                { loc: [23, 24], note: "Returns a fixture for debugging and testing a component" },
+                { loc: [24, 25], note: "Returns the component instance" },
+                { loc: [25, 26], note: "Returns the debug element associated with this component" },
+                { loc: [43, 50], note: "Change component's properties/inputs" },
+                { loc: [51, 52], note: "Trigger a change detection cycle for the component" },
+                { loc: [53, 54], note: "Use the debug element to test against your templates" },
+                { loc: [12, 18], note: "TestBed allows you to stub injected dependencies" },
+            ]}/>
           <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-              CONTENT HERE
-            </Heading>
-          </Slide>
+            <List>
+              <ListItem>
+                <a style={{ color: 'white', textDecoration: 'none' }} href="https://angular.io/docs/ts/latest/guide/testing.html">https://angular.io/docs/ts/latest/guide/testing.html</a>
+              </ListItem>
+              <ListItem>
+                <a style={{ color: 'white', textDecoration: 'none' }} href="https://medium.com/google-developer-experts/angular-2-testing-guide-a485b6cb1ef0">https://medium.com/google-developer-experts/angular-2-testing-guide-a485b6cb1ef0</a>
+              </ListItem>
+            </List>
+          </Slide>  
           <Slide transition={["fade"]} bgColor="primary">
             <Heading size={1} fit caps lineHeight={1} textColor="secondary">
               Maintaining Tests
@@ -203,22 +264,22 @@ export default class Presentation extends React.Component {
               lang="js"
               code={require("raw-loader!../assets/examples/component-test.example")}
               ranges={[
-                { loc: [0, 51], title: "Organize tests!" },
+                { loc: [0, 58], title: "Organize tests!" },
                 { loc: [4, 5], note: 'top-level "describe" for component' },
-                { loc: [22, 23], note: 'nested "describe" for functions on component' },
-                { loc: [28, 29], note: 'nested "describe" for functions on component' },
-                { loc: [34, 35], note: '"describe" for component interaction & functionality' }
+                { loc: [28, 31], note: 'nested "describe" for functions on component' },
+                { loc: [34, 35], note: 'nested "describe" for functions on component' },
+                { loc: [40, 41], note: '"describe" for component interaction & functionality' }
             ]}/>
           <CodeSlide
               transition={["fade"]}
               lang="js"
               code={require("raw-loader!../assets/examples/component-test.example")}
               ranges={[
-                { loc: [35, 36], title: "a test should tell a story" },
-                { loc: [37, 44], note: 'Arrange' },
-                { loc: [45, 46], note: 'Act' },
-                { loc: [47, 48], note: 'Assert' },
-                { loc: [47, 48], note: 'don\'t follow DRY "to a tee"' },
+                { loc: [41, 42], title: "a test should tell a story" },
+                { loc: [43, 50], note: 'Arrange' },
+                { loc: [51, 52], note: 'Act' },
+                { loc: [53, 54], note: 'Assert' },
+                { loc: [53, 54], note: 'don\'t follow DRY "to a tee"' },
             ]}/>
           <CodeSlide
             transition={["fade"]}
@@ -238,6 +299,12 @@ export default class Presentation extends React.Component {
                 { loc: [0, 51], note: "npm install husky --save-dev" },
                 { loc: [11, 13], note: 'add precommit and prepush hooks' }
             ]}/>
+          <Slide transition={["fade"]}>
+            <Heading size={1} fit textColor="secondary">
+              Thanks! &nbsp;
+             <Image src={images.nerdface.replace('/', '')}  style={{ "vertical-align": "middle", "margin-top": "2px" }} height="15px" />
+            </Heading>
+          </Slide>
         </Deck>
       </Spectacle>
     );
