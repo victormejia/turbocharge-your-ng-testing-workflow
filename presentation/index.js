@@ -99,7 +99,9 @@ export default class Presentation extends React.Component {
                 <Text margin={10} textSize="1.2em" textColor="secondary">
                   <a href="https://twitter.com/_victormejia" style={{ color: 'white', textDecoration: 'none' }}>@_victormejia</a>
                 </Text>
-                <Text margin={10} textSize="1.2em" textColor="secondary">ngtest.firebaseapp.com</Text>
+                <Text margin={10} textSize="1.2em" textColor="secondary">
+                  <a href="https://ngtest-turbo.firebaseapp.com" style={{ color: 'white', textDecoration: 'none' }}>ngtest-turbo.firebaseapp.com</a>
+                </Text>
               </div>
             </Layout>
           </Slide>
