@@ -1,13 +1,13 @@
 {
-  "name": "spectacle-boilerplate",
-  "version": "1.0.1",
-  "description": "ReactJS Powered Presentation Framework",
+  "name": "turbocharge-your-ng-testing-workflow",
+  "version": "1.0.0",
+  "description": "Turbocharge Your Angular Testing Workflow",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf dist",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
     "lint": "eslint --ext .js,.jsx .",
-    "deploy": "npm run clean & npm run build && surge -p .",
+    "deploy": "npm run clean & npm run build && firebase deploy",
     "start": "cross-env NODE_ENV=development node server.js"
   },
   "author": "",
