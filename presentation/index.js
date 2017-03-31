@@ -41,7 +41,6 @@ require("spectacle/lib/themes/default/index.css");
 
 const images = {
   city: require("../assets/city.jpg"),
-  logo: require("../assets/formidable-logo.svg"),
   markdown: require("../assets/markdown.png"),
   poll: require('../assets/ng-test-twitter-poll.png'),
   chromeTest: require('../assets/ng-test-chrome.png'),
@@ -56,7 +55,8 @@ const images = {
   heart: require('../assets/heart.png'),
   spaceship: require('../assets/spaceship.png'),
   nerdface: require('../assets/nerdface.png'),
-  cool: require('../assets/cool.png')
+  cool: require('../assets/cool.png'),
+  spaceshipbg: require('../assets/spaceship.jpg')
 };
 
 preloader(images);
@@ -82,24 +82,24 @@ export default class Presentation extends React.Component {
     return (
       <Spectacle theme={theme}>
         <Deck transition={["zoom", "slide"]} transitionDuration={500}>
-          <Slide transition={["fade"]} bgImage={images.nyc.replace('/', '')} bgDarken={0.6}>
+          <Slide transition={["fade"]} bgImage={images.spaceshipbg.replace('/', '')} bgDarken={0.6}>
             <Text fit caps bold  textColor="secondary">
-              Throw Your Tests Up In There
+              Turbocharge Your 
             </Text>
             <Text fit caps bold textColor="secondary">
-              And Run ‘em Like You Just Don’t Care
+              Angular Testing Workflow
             </Text>
             <Layout style={{ "margin-top": "40px" }}>
               <div>
                 <Image style={{borderRadius: "50%", textAlign: "center", marginTop: "40px" }} src={images.profile.replace('/', '')} height="150px" />
               </div>
               <div style={{ "text-align": "left", "padding-left": "10px" }}> 
-                <Text margin={10} textSize="1.5em" textColor="secondary">Victor Mejia</Text>
-                <Text margin={10} textSize="1.5em" textColor="secondary">Lead Instructor @ Orange County Code School</Text>
-                <Text margin={10} textSize="1.5em" textColor="secondary">
+                <Text margin={10} textSize="1.2em" textColor="secondary">Victor Mejia</Text>
+                <Text margin={10} textSize="1.2em" textColor="secondary">Lead Instructor @ Orange County Code School</Text>
+                <Text margin={10} textSize="1.2em" textColor="secondary">
                   <a href="https://twitter.com/_victormejia" style={{ color: 'white', textDecoration: 'none' }}>@_victormejia</a>
                 </Text>
-                <Text textSize="1.5em" textColor="secondary">ngtest.firebaseapp.com</Text>
+                <Text margin={10} textSize="1.2em" textColor="secondary">ngtest.firebaseapp.com</Text>
               </div>
             </Layout>
           </Slide>
@@ -148,17 +148,6 @@ export default class Presentation extends React.Component {
                 </div>]}
               />
           </Slide>
-          <CodeSlide
-            transition={["fade"]}
-            lang="js"
-            code={require("raw-loader!../assets/examples/karma.conf.example")}
-            ranges={[
-              { loc: [0, 41], title: "karma.conf.js" },
-              { loc: [4, 11], note: "plugins" },
-              { loc: [23, 27], note: "generate coverage report with istanbul" },
-              { loc: [30, 33], note: "test reporters" },
-              { loc: [37, 38], note: "A list of browsers to launch and capture (PhantomJS, Chrome, Firefox)" }
-            ]}/>
           <Slide transition={["fade"]} bgColor="primary">
             <Terminal title="" output={[
               <div>
