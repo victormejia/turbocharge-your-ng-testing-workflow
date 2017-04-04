@@ -205,6 +205,7 @@ export default class Presentation extends React.Component {
           </Slide>
           <Slide transition={["fade"]} bgColor="secondary" bgImage={images.wallaby.replace("/", "")}/>
           <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={1} textColor="secondary" caps>Reference</Heading>
             <List>
               <ListItem>
                 <a style={{ color: 'white', textDecoration: 'none' }} href="https://github.com/wallabyjs/ngCliWebpackSample">https://github.com/wallabyjs/ngCliWebpackSample</a>
@@ -236,6 +237,7 @@ export default class Presentation extends React.Component {
                 { loc: [12, 18], note: "TestBed allows you to stub injected dependencies" },
             ]}/>
           <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={1} textColor="secondary" caps>Reference</Heading>
             <List>
               <ListItem>
                 <a style={{ color: 'white', textDecoration: 'none' }} href="https://angular.io/docs/ts/latest/guide/testing.html">https://angular.io/docs/ts/latest/guide/testing.html</a>
@@ -278,16 +280,39 @@ export default class Presentation extends React.Component {
             code={require("raw-loader!../assets/examples/dependencies.example")}
             ranges={[
               { loc: [0, 41], title: "mock dependencies to isolate tests" },
-              { loc: [0, 7], note: 'mock dependencies' },
-              { loc: [16, 19], note: 'use the provide object literal' },
+              { loc: [0, 10], note: 'mock dependencies' },
+              { loc: [20, 23], note: 'use the provide object literal' },
             ]}/>
+            <CodeSlide
+              transition={["fade"]}
+              lang="js"
+              code={require("raw-loader!../assets/examples/karma.conf.threshold.example")}
+              ranges={[
+                { loc: [0, 64], title: "enforce coverage thresholds" },
+                { loc: [0, 64], note: "npm i --save-dev karma-istanbul-threshold" },
+                { loc: [9, 10], note: 'add to plugins' },
+                { loc: [26, 27], note: 'add json reporter' },
+                { loc: [50, 52], note: 'add istanbul-threshold reporter' },
+                { loc: [32, 47], note: 'add global and individual file thresholds' }
+            ]}/>
+            <Slide transition={["fade"]} bgColor="primary">
+              <Heading size={1} textColor="secondary" caps>Reference</Heading>
+              <List>
+                <ListItem>
+                  <a style={{ color: 'white', textDecoration: 'none' }} href="https://github.com/angular/angular-cli/issues/883#issuecomment-283590430">https://github.com/angular/angular-cli/issues/883#issuecomment-283590430</a>
+                </ListItem>
+                <ListItem>
+                  <a style={{ color: 'white', textDecoration: 'none' }} href="https://github.com/victormejia/ngconf2017-test-demo/commit/abe56faa1418bfda3396296783617b3319579a0a">https://github.com/victormejia/ngconf2017-test-demo/commit/abe56faa1418bfda3396296783617b3319579a0a</a>
+                </ListItem>
+              </List>
+            </Slide> 
             <CodeSlide
               transition={["fade"]}
               lang="js"
               code={require("raw-loader!../assets/examples/package.json.example")}
               ranges={[
                 { loc: [0, 51], title: "prevent bad commits with husky" },
-                { loc: [0, 51], note: "npm install husky --save-dev" },
+                { loc: [0, 51], note: "npm i --save-dev husky" },
                 { loc: [11, 13], note: 'add precommit and prepush hooks' }
             ]}/>
           <Slide transition={["fade"]}>

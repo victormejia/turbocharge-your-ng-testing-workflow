@@ -1,8 +1,12 @@
 class MockApiService {
   getProducts() {
-    return Observable.create((observer: Observer<any>) => {
-      observer.next([]);
-    });
+    return Observable.of([{
+      title: 'Angular T-Shirt',
+      price: 2499,
+      popular: false,
+      rating: 4,
+      img: 'https://raw.githubusercontent.com/victormejia/victormejia.github.io/master/assets/images/ngshirt.png'
+    }]);
   }
 }
 
