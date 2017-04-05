@@ -205,7 +205,7 @@ export default class Presentation extends React.Component {
           </Slide>
           <Slide transition={["fade"]} bgColor="secondary" bgImage={images.wallaby.replace("/", "")}/>
           <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={1} textColor="secondary" caps>Reference</Heading>
+            <Heading size={1} textColor="secondary" caps>Wallaby Integration</Heading>
             <List>
               <ListItem>
                 <a style={{ color: 'white', textDecoration: 'none' }} href="https://github.com/wallabyjs/ngCliWebpackSample">https://github.com/wallabyjs/ngCliWebpackSample</a>
@@ -237,7 +237,7 @@ export default class Presentation extends React.Component {
                 { loc: [12, 18], note: "TestBed allows you to stub injected dependencies" },
             ]}/>
           <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={1} textColor="secondary" caps>Reference</Heading>
+            <Heading size={1} textColor="secondary" caps>Testing Guides</Heading>
             <List>
               <ListItem>
                 <a style={{ color: 'white', textDecoration: 'none' }} href="https://angular.io/docs/ts/latest/guide/testing.html">https://angular.io/docs/ts/latest/guide/testing.html</a>
