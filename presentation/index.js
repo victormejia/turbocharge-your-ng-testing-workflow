@@ -315,6 +315,17 @@ export default class Presentation extends React.Component {
                 { loc: [0, 51], note: "npm i --save-dev husky" },
                 { loc: [11, 13], note: 'add precommit and prepush hooks' }
             ]}/>
+          <Slide transition={["fade"]} bgColor="primary">
+              <Heading size={1} textColor="secondary" caps>Links</Heading>
+              <List>
+                <ListItem>
+                  <a style={{ color: 'white', textDecoration: 'none' }} href="https://ngtest-turbo.firebaseapp.com">ngtest-turbo.firebaseapp.com</a>
+                </ListItem>
+                <ListItem>
+                  <a style={{ color: 'white', textDecoration: 'none' }} href="https://github.com/victormejia/ngconf2017-test-demo">github.com/victormejia/ngconf2017-test-demo</a>
+                </ListItem>
+              </List>
+            </Slide> 
           <Slide transition={["fade"]}>
             <Heading size={1} fit textColor="secondary">
               Thanks! &nbsp;
