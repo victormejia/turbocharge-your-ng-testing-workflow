@@ -129,9 +129,9 @@ export default class Presentation extends React.Component {
             <Terminal title="" output={[
               "▶ ng new ng-shop",
               <div>
-                <div style={{ color: "#5af78e"}}>Installing packages for tooling via npm. </div>
-                <div style={{ color: "#5af78e"}}>Installed packages for tooling via npm.</div>
-                <div style={{ color: "#5af78e"}}>Project 'ng-shop' successfully created.</div>
+                <div style={{ color: terminal.green }}>Installing packages for tooling via npm. </div>
+                <div style={{ color: terminal.green }}>Installed packages for tooling via npm.</div>
+                <div style={{ color: terminal.green }}>Project 'ng-shop' successfully created.</div>
               </div>]} />
           </Slide>
           <Slide transition={["fade"]} bgColor="primary">
