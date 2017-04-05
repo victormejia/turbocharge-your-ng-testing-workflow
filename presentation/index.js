@@ -72,7 +72,7 @@ const theme = createTheme({
 
 const terminal = {
   purple: '#d6bcfc',
-  green: '#5af78e',
+  green: '#7ec699',
   yellow: '#f4f99d',
   cyan: '#9aedfe'
 };
