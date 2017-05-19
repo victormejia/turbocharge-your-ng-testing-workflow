@@ -1,3 +1,8 @@
+# Turbocharge Your Angular Testing Workflow
+
+Slides for talk given at [ng-conf 2017](https://www.youtube.com/watch?v=wj3dStoEhso).
+
+![screenshot](https://raw.githubusercontent.com/victormejia/turbocharge-your-ng-testing-workflow/master/screenshot.png?token=ACJhTE3eGyVLiaWHCV2XF1OqLLIeo8dsks5ZJ8-RwA%3D%3D)
 # Spectacle Boilerplate
 
 ## Reference
